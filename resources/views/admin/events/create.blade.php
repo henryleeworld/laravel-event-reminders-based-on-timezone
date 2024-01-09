@@ -9,7 +9,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.events.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="title">{{ trans('cruds.event.fields.title') }}</label>
                 <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', '') }}" required>
                 @if($errors->has('title'))
@@ -19,7 +19,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.title_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="description">{{ trans('cruds.event.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
                 @if($errors->has('description'))
@@ -29,7 +29,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.description_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="start_time">{{ trans('cruds.event.fields.start_time') }}</label>
                 <input class="form-control datetime {{ $errors->has('start_time') ? 'is-invalid' : '' }}" type="text" name="start_time" id="start_time" value="{{ old('start_time') }}" required>
                 @if($errors->has('start_time'))
@@ -39,7 +39,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.start_time_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="registrants">{{ trans('cruds.event.fields.registrants') }}</label>
                 <div style="padding-bottom: 4px">
                     <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
@@ -57,11 +57,11 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.registrants_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="timezone">{{ trans('cruds.event.fields.timezone') }}</label>
                 <select class="form-control select2 {{ $errors->has('timezone') ? 'is-invalid' : '' }}" name="timezone" id="timezone">
                     @foreach(timezone_identifiers_list() as $timezone)
-                        <option {{ old('timezone', 'Europe/London') == $timezone ? 'selected' : '' }}>{{ $timezone }}</option>
+                        <option {{ old('timezone', 'Asia/Taipei') == $timezone ? 'selected' : '' }}>{{ $timezone }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('timezone'))
@@ -71,7 +71,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.timezone_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-0">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

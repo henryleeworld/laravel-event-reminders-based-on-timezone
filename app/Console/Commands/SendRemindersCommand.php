@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Event;
+use App\Models\Event;
 use App\Notifications\EventReminderNotification;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Notification;

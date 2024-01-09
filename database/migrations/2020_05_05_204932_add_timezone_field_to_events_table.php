@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTimezoneFieldToEventsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTimezoneFieldToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('timezone')->default('Europe/London');
+            $table->string('timezone')->default('Asia/Taipei');
         });
     }
 
@@ -29,4 +29,4 @@ class AddTimezoneFieldToEventsTable extends Migration
             $table->dropColumn('timezone');
         });
     }
-}
+};

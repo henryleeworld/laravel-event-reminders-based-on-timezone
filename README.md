@@ -1,8 +1,9 @@
-# Laravel 7 依據時區事件提醒
+# Laravel 10 依據時區事件提醒
 
-觸發事件的提醒之後，使用者就會收到事件通知。Laravel 7 依據時區事件提醒主要是用的 [QuickAdminPanel](https://quickadminpanel.com) 生成的，除了一些定制代碼，可依需求彈性改造的工具。
+觸發事件的提醒之後，使用者就會收到事件通知。
 
 ## 使用方式
+- 打開 php.ini 檔案，啟用 PHP 擴充模組 sodium，並重啟服務器。
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
 ```sh
 $ git clone
@@ -20,14 +21,18 @@ $ php artisan key:generate
 ```sh
 $ php artisan migrate --seed
 ```
+- 在進行任何此項工作之前，請確保任務排程運行如下：
+```sh
+* * * * * php /專案路徑/artisan schedule:run >> /dev/null 2>&1
+```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/login` 來進行登入，預設的電子郵件和密碼分別為 __admin@admin.com__ 和 __password__ 。
 
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/cvDwhT1.png)
+![](https://i.imgur.com/ataAb0h.png)
 > 設定將監聽的事件
 
-![](https://i.imgur.com/sM2qKUl.png)
+![](https://i.imgur.com/A7MVhGG.png)
 > 傳送事件電子郵件
